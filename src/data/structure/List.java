@@ -59,6 +59,8 @@ public class List {
 		double maior = lista.MaiorValorNoArray(notas);
 		System.out.println(maior);
 		
+		
+		
 	}
 	
 }

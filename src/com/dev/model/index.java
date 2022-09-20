@@ -1,5 +1,7 @@
 package com.dev.model;
 
+import data.structure.Gato;
+
 public class index {
 	public static void main(String[] args) {
 		Gato gato = new Gato(5, "Brabo", "Bra");
