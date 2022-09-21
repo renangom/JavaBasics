@@ -1,6 +1,8 @@
 package data.structure;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ordenandoLista {
@@ -16,6 +18,18 @@ public class ordenandoLista {
 		meusGatos.add(gato2);
 		meusGatos.add(gato3);
 		
+		System.out.println(meusGatos);
+		System.out.println("--\tOrdem Natural (Nome)\t---");
+		Collections.sort(meusGatos);
+		System.out.println(meusGatos);
+		
+		System.out.println("--\tOrdem Idade\t---");
+		//Collections.sort(meusGatos, new ComparatorIdade());
+		meusGatos.sort(new ComparatorIdade());
+		System.out.println(meusGatos);
+		
+		System.out.println("--\tOrdem Cor\t---");
+		meusGatos.sort(new ComparatorCor());
 		System.out.println(meusGatos);
 	}
 }
@@ -51,4 +65,23 @@ class Gato implements Comparable<Gato>{
 				'}';
 	}
 	
+	@Override
+	public int compareTo(Gato gato) {
+		return this.getNome().compareToIgnoreCase(gato.getNome());
+	}
+	
+}
+
+class ComparatorIdade implements Comparator<Gato>{
+	@Override
+	public int compare(Gato g1, Gato g2) {
+		return Integer.compare(g1.getIdade(), g2.getIdade());
+	}
+}
+
+class ComparatorCor implements Comparator<Gato>{
+	@Override
+	public int compare(Gato g1, Gato g2) {
+		return g1.getCor().compareToIgnoreCase(g2.getCor());
+	}
 }
