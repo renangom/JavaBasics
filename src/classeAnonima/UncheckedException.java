@@ -7,8 +7,16 @@ public class UncheckedException {
         String a = JOptionPane.showInputDialog("Numerador: ");
         String b = JOptionPane.showInputDialog("Denominador: ");
 
-        int resultado = dividir(Integer.parseInt(a), Integer.parseInt(b));
-        System.out.println("Resultado: " + resultado);
+        try {
+            int resultado = dividir(Integer.parseInt(a), Integer.parseInt(b));
+            System.out.println("Resultado: " + resultado);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Entrada inválida, informe um número inteiro");
+        } catch (ArithmeticException e) {
+            JOptionPane.showMessageDialog(null, "Não é possível dividir por zero");
+        } finally {
+            System.out.println("Chegou no finally!");
+        }
 
     }
 
